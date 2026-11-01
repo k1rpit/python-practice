@@ -843,3 +843,39 @@
 
 #a=generaor_type.func_generator(type_data=tuple,data='21')#
 #print(a)
+
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$import reguests$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+#import requests
+#import time
+
+
+#url = "https://api.binance.com/api/v3/ticker/price"
+#response_url = requests.get(url,params={"symbol":'BTCUSDT'})
+
+#counter = response_url.content
+#print(counter)
+#print(type(counter))
+
+#price = response_url.json()
+#print(price)
+
+#price_int = float(price['price'])
+#print(price_int)
+#bitcoin_prices = []
+#for i in range(20):
+ #   response_url = requests.get(url,params={"symbol":'BTCUSDT'})
+ #   price = float(response_url.json()['price'])
+ #   bitcoin_prices.append(price)
+ #   time.sleep(1)
+
+#print('--'*32)
+#print(f'цена биткона в течении 20 секунд')
+#print(f'максимально:\t{max(bitcoin_prices)}')
+#print(f'минимально:\t{min(bitcoin_prices)}')
+#print(f'размах:\t{max(bitcoin_prices)-min(bitcoin_prices)}')
+#print('--'*32)
