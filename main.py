@@ -879,3 +879,102 @@
 #print(f'минимально:\t{min(bitcoin_prices)}')
 #print(f'размах:\t{max(bitcoin_prices)-min(bitcoin_prices)}')
 #print('--'*32)
+
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!set()!!множества!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+#data_ip =['192.168.58.21','192.168.18.3','192.168.48.2','192.168.51.1','192.168.51.1']
+#data_ip_more =['192.168.58.21','192.168.98.12','192.168.48.2','192.168.51.1']
+
+#data_ip_global = data_ip + data_ip_more
+#data_ip_set = set(data_ip_global)
+#data_ip_global = list(data_ip_set)
+#print(data_ip_global)
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!сортировка и фильтрация!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#data_id = ['b2','c3','x1','l0','i30','a8','k0','n2']
+#data_id = sorted(data_id)[::-1]
+#print(data_id)
+
+#data_ip =['192.168.58.221','19.16.18.3','192.168.48.2','192.1.51.1','192.168.51.1']
+
+#def sort_data_ip(data: list) -> int:
+    #return len(data)
+
+#data_ip = sorted(data_ip,key=sort_data_ip)
+
+#print(data_ip)
+#from statistics import median
+
+#network_traffic_averages = [
+#    {"ip": "10.0.0.12", "average_packets": [0, 0, 1, 1, 8, 9, 12, 32, 43]},
+#    {"ip": "172.16.254.1", "average_packets": [2, 3, 5, 7, 7, 12, 12, 13]},
+#    {"ip": "192.168.1.100", "average_packets":[0, 3, 3, 6, 10, 12, 34]},
+#    {"ip": "10.0.0.13", "average_packets": [0, 0, 1, 1, 8, 9, 12, 32, 43]},
+#    {"ip": "10.0.0.14", "average_packets": [0, 0, 1, 1, 8, 9, 12, 32, 43]},
+#]
+
+#def sort_median(data: dict) -> tuple[int,int]:
+#    return (median(data["average_packets"])),len(data['ip'])
+
+#sort_ip = sorted(network_traffic_averages,key=sort_median)
+#print(sort_ip[::-1])
+
+
+#data_ports = [21,22,23,80,8888,22,25,443,20,2222]
+
+#def filtr_ssh(port: int) -> bool:
+#    return port != 22 and port != 2222
+
+#filter_ports = filter(filtr_ssh,data_ports)
+#print(list(filter_ports))
+
+
+#raw_traffic = [
+#    {"ip": "10.0.0.12", "ports": [22, 80, 443, 22]},
+#    {"ip": "192.168.1.100", "ports": [80, 80, 80]},
+#    {"ip": "172.16.254.1", "ports": [21, 23, 2222]},
+#]
+
+#def del_dupl_data_ip(*,data_traffic: list):
+#    for data_ip in data_traffic:
+#        data_ip['ports'] = set(data_ip['ports'])
+#        data_ip['ports'] = list(data_ip['ports'])
+        
+#del_dupl_data_ip(data_traffic=raw_traffic)#
+
+#def block_port_SSH(ports: int):
+#    return ports != 22 and ports != 2222
+
+#for i in raw_traffic:
+#    i['ports']=list(filter(block_port_SSH,i['ports']))
+#print(list(raw_traffic))
+
+#data = [
+#    {'traffic': [10, 2, 42, 80]},
+#    {'traffic': [12, 2, 4, 80]},
+#    {'traffic': [1, 3, 4, 8]},
+#    {'traffic': [1, 332, 42, 80]},
+#    {'traffic': [0, 12, 41, 2]},
+#    {'traffic': [0, 32, 42, 8]},
+#]
+#def sort_data(data: dict):
+#    return sum(data['traffic']) / len(data['traffic'])
+
+#data = sorted(data,key=sort_data)[::-1]
+#print(data)
