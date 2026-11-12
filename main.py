@@ -3,6 +3,7 @@
 #print('1','2',sep='|',end=' ')
 #print('3','4')
 #print(5)
+#print('1234567890!@#$%^&*()_+!"№;%:?*()_+><?~`AЭ')
 
 #user_name = str(input('введите свое имя: '))
 #print('user name  --> ',end=' ')
