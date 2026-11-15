@@ -1,8 +1,9 @@
-"""" базовое форматирования и методы в принт а также инпут
+# базовое форматирования и методы в принт а также инпут
 
 #print('1','2',sep='|',end=' ')
 #print('3','4')
 #print(5)
+#print('1234567890!@#$%^&*()_+!"№;%:?*()_+><?~`AЭ')
 
 #user_name = str(input('введите свое имя: '))
 #print('user name  --> ',end=' ')
@@ -363,11 +364,6 @@
 #clear_data = []
 
 #for port in central_data:
-
-
-
-
-
 #        if port == black_list[0]:
 #            print('порт\t %s не был добавлен в даные так как он %s' % (black_list[0],black_list[1]))
 #            continue
@@ -461,11 +457,10 @@
 #            data_ports.append(i)
 #        else:
 #            data_ip.append(i)
-#    print(f""" 
+#    print(f"""
 #    {data_ports} порты,
 #    {data_ip} айпи
 #    """)
-"""
 #func_sort_ip_port(list_data=data)
 
 #input_user = int(input('> '))
@@ -874,10 +869,10 @@
 #print(price_int)
 #bitcoin_prices = []
 #for i in range(20):
-#    response_url = requests.get(url,params={"symbol":'BTCUSDT'})
-#    price = float(response_url.json()['price'])
-#    bitcoin_prices.append(price)
-#    time.sleep(1)
+ #   response_url = requests.get(url,params={"symbol":'BTCUSDT'})
+ #   price = float(response_url.json()['price'])
+ #   bitcoin_prices.append(price)
+ #   time.sleep(1)
 
 #print('--'*32)
 #print(f'цена биткона в течении 20 секунд')
@@ -885,6 +880,8 @@
 #print(f'минимально:\t{min(bitcoin_prices)}')
 #print(f'размах:\t{max(bitcoin_prices)-min(bitcoin_prices)}')
 #print('--'*32)
+
+
 
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -983,47 +980,404 @@
 #data = sorted(data,key=sort_data)[::-1]
 #print(data)
 
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!                                                    !!!!!!!!!!!!!
+# !!!!!!!!!!!!!               █████    █████   ██████              !!!!!!!!!!!!!
+# !!!!!!!!!!!!!              ██   ██  ██   ██  ██   ██             !!!!!!!!!!!!!
+# !!!!!!!!!!!!!              ██   ██  ██   ██  ██████              !!!!!!!!!!!!!
+# !!!!!!!!!!!!!              ██   ██  ██   ██  ██                  !!!!!!!!!!!!!
+# !!!!!!!!!!!!!               █████    █████   ██                  !!!!!!!!!!!!!
+# !!!!!!!!!!!!!                                                    !!!!!!!!!!!!!
+# !!!!!!!!!!!!!                                                    !!!!!!!!!!!!!
+# !!!!!!!!!!!!!                                                    !!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-#!!!!!!!!!!!!!
-#!!!lambda!!!!
-#!!!!!!!!!!!!!
-
-i: int = 1
-l = lambda i: 10+i
-print(l(i))
-
-raw_ip_list: list = [
-    '205.251.242.103',
-    '4.2.2.2',
-    '185.190.140.2',
-    '10.0.0.1',
-    '19.20.4.1',
-    '77.88.55.55',
-    '172.56.211.9',
-    '1.1.1.1',
-    '213.180.204.3',
-    '93.158.134.11',
-    '192.168.1.254',
-    '5.255.255.5',
-    '142.250.74.46',
-    '8.8.8.8',
-    '100.64.0.1',
-    '45.132.8.117'
-]
-
-sort_ip_len = lambda ip: len(ip)
-gateway_ip = lambda ip: ip != '1.1.1.1' and ip != '8.8.8.8'and ip !=  '10.0.0.1'
-
-filter_and_sort_ip_list: list =  sorted(raw_ip_list,key=sort_ip_len)
-filter_and_sort_ip_list: list =list(filter(gateway_ip,filter_and_sort_ip_list))
-filter_and_sort_ip_list: list =list(filter(lambda ip: ip !='4.2.2.2',filter_and_sort_ip_list))
-max_ip_list = max(filter_and_sort_ip_list,key=lambda ip: int(ip.split('.')[0]))
-min_ip_list = min(filter_and_sort_ip_list,key=lambda ip: int(ip.split('.')[0]))
-
-print('--'*32)
-print('готовый список айпи:\t{sort_list}'.format(sort_list=filter_and_sort_ip_list),end=';')
-print(f'максимального IP по первому октету:\t{max_ip_list}',end=';')
-print(f'минимальнок IP по первому октету:\t{min_ip_list}')
-print('--'*32)
 """
+ООП (Объектно-ориентированное программирование) — способ писать код в виде объектов, 
+у которых есть свои данные (свойства) и действия (методы).
+
+Основные термины:
+- Класс (class) — чертеж или шаблон (например, "Машина").
+- Объект (экземпляр) — конкретная вещь, созданная по чертежу (например, "красная BMW").
+- Атрибуты — переменные внутри объекта, его характеристики (цвет, скорость).
+- Методы — функции внутри объекта, его действия (ехать, тормозить).
+- __init__ — конструктор, который задает начальные атрибуты при создании объекта.
+- self — ссылка на сам конкретный объект, с которым сейчас идет работа.
+
+4 принципа ООП:
+1. Инкапсуляция — скрытие внутренней начинки и защита данных от прямого изменения.
+2. Наследование — создание нового класса на основе старого с перенятием его свойств.
+3. Полиморфизм — разное поведение одного и того же метода у разных классов.
+4. Абстракция — выделение только главных характеристик объекта и отбрасывание лишнего.
+"""
+
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!    ОПИСАНИЯ КЛАССОВ И СОЗДАНИЯ ОБЪЕКТОВ    !!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# ------------------- [сзнакомсто с классами и обьектами] -------------------
+
+"""
+class OneA():
+    pass
+
+class Oneb():
+    pass
+a = OneA()
+b = Oneb()
+print('обьект А:\t',a)
+print('обьект Б:\t',b)
+
+class CD ():
+    pass
+C = CD()
+D = CD()
+print(f'class C:\t{C};',end=" ")
+print(f'class D:\t{D}')
+
+is_cd_bool = C == D
+print(f'C==D?:\t\t{is_cd_bool}')
+
+print(f'класс обьекта C:\t{type(C).__name__}')
+print(f'класс обьекта D:\t{type(D).__name__}')
+"""
+
+# ------------------- [ ПОЛЯ И МЕТОДЫ ] -------------------
+
+"""
+class CveClass:
+    def set_cve(self,cve):
+        self.cve_ftp = cve
+    def chow_cve(self):
+        print(f'CVE FTP:\t\t{self.cve_ftp}')
+        
+cve_ftp_2015 = CveClass()
+cve_ftp_2020 = CveClass()
+
+cve_ftp_2015.set_cve('CVE-2015-3306')
+cve_ftp_2020.set_cve('CVE-2020-9273')
+
+
+cve_ftp_2015.chow_cve()
+cve_ftp_2020.chow_cve()
+
+cve_ftp_2015.set_cve('CVE-2015-1419')
+cve_ftp_2020.set_cve('CVE-2020-9272')
+
+
+cve_ftp_2015.chow_cve()
+cve_ftp_2020.chow_cve()
+"""
+
+CVE = 'CVE-2021-41773'
+'''
+class CheckDateCve:
+    def check_date(self,cve: str) -> None:
+        self.date_cve =  cve.split('-')[1]
+        print('USER CVE:\t{}'.format(cve))
+        
+    def show_date_cve(self) -> None:
+        print(f'DATE CVE:\t{self.date_cve}')
+        
+obj_check_date_cve = CheckDateCve()
+
+obj_check_date_cve.check_date(CVE)
+obj_check_date_cve.show_date_cve()
+'''
+
+# ------------------- [ КОНСТРУКТОРЫ И ДЕСТРУКТОРЫ ] -------------------
+"""
+class PrintCveUser:
+    def __init__(self,cve='CVE-2000-0124'):
+        self.name_cve = cve
+        print(f'create obj "cve":\n{self.name_cve}')
+    
+    def __del__(self):
+        print(f'del obj "cve":\n{self.name_cve}')
+        
+def creat_obj_cve(cve):
+    obj_cve = PrintCveUser(cve)
+    
+    
+cve_one =  PrintCveUser('CVE-2006-2369')
+cve_two =  PrintCveUser('CVE-2026-24061')
+cve_three =  PrintCveUser('VE-2019-0708')
+cve_three.name_cve = 'CVE-2017-0144'
+
+
+del cve_one;del cve_two;del cve_three
+"""
+'''
+class SequenceNumberCve:
+ def __init__(self,cve='CVE-1999-0004') -> None:
+     self.sequence_number = cve.split('-')[-1]
+ def chow_sequence_number(self) -> None:
+     print(f' A Sequence Number CVE:\t\t{self.sequence_number}')
+
+
+obj_cve_sn = SequenceNumberCve()
+obj_cve_sn.chow_sequence_number()
+
+'''
+# ------------------- [ ОБЪЕКТЫ: РЕАЛИЗАЦИЯ КЛАССОВ ] -------------------
+"""
+class Unix:
+    pass
+
+class Darwin:
+    pass
+
+class Linux:
+    pass
+
+class BSD:
+    pass
+
+apple_os  = Darwin
+
+hp_ux = Unix()
+debian = Linux()
+
+iOS = apple_os()
+iPadOS = apple_os()
+macOS = apple_os()
+
+
+apple_os = iOS.__class__
+watchOS = apple_os()
+
+print(f'ОБЬЕКТ:\t"iOS" ПОД КЛАССОМ:\t{type(iOS).__name__}')
+print(f'ОБЬЕКТ:\t"iPadOS" ПОД КЛАССОМ:\t{type(iPadOS).__name__}')
+print(f'ОБЬЕКТ:\t"macOS" ПОД КЛАССОМ:\t{type(macOS).__name__}')
+print(f'ОБЬЕКТ:\t"watchOS" ПОД КЛАССОМ:\t{type(watchOS).__name__}')
+
+apple_os.__name__ = "darwin"
+iOS.__name__ = "mac_os"
+
+print(f'ОБЬЕКТ:\t"iOS" ПОД КЛАССОМ:\t{type(iOS).__name__}')
+print(f'ОБЬЕКТ:\t"iPadOS" ПОД КЛАССОМ:\t{type(iPadOS).__name__}')
+print(f'ОБЬЕКТ:\t"macOS" ПОД КЛАССОМ:\t{type(macOS).__name__}')
+print(f'ОБЬЕКТ:\t"watchOS" ПОД КЛАССОМ:\t{type(watchOS).__name__}')
+"""
+
+'''
+class GNU:
+    pass
+class Linux:
+    pass
+linux = Linux
+gnu  = GNU
+
+debian = linux()
+red_heat = gnu()
+
+linux.__name__ = 'GNU/LINUX'
+gnu.__name__ = 'GNU/LINUX'
+
+print('debian\n',type(debian).__name__)
+
+print('red heat\n',type(red_heat).__name__)
+'''
+'''
+class OpenSSH:
+    cve = ['CVE-2024-6387']
+    def set(self,cve_user: str):
+        OpenSSH.cve.append(cve_user)
+        
+    def show():
+        print(f'{OpenSSH.cve=}')
+        
+
+
+OpenSSH.cve = ['CVE-2018-15473']
+OpenSSH.show()
+
+High_Critical_vce_open_ssh = OpenSSH()
+
+
+
+High_Critical_vce_open_ssh.set('CVE-2023-38408 ')
+High_Critical_vce_open_ssh.set('CVE-2024-6387 ')
+
+
+print(f'{High_Critical_vce_open_ssh.cve=}')
+'''
+
+"""
+class Unix:
+    os = 'BSD'
+    
+    def set(os_user):
+        Unix.os = os_user
+        
+    def chow():
+        print(f'{Unix.os=}')
+Unix.chow()
+Unix.set('SunOS')
+Unix.chow() 
+
+Unix.os = 'HP-UX'
+print(f'{Unix.os=}')
+
+Unix.set('BSD')
+
+obj_BSD = Unix()
+obj_mac_os = Unix()
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+obj_BSD.os = 'NetBSD'
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+obj_mac_os.os = 'Darwin'
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+del obj_BSD.os
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+"""
+"""
+class WinXPVM:
+    def __init__(self):
+        self.port = 445
+        print('ПОРТ ОТКРЫВАЕТСЯ:\t{port}'.format(port=self.port))
+        
+    def __del__(self):
+        print('ПОРТ ЗАКРЫВАЕТСЯ:\t{port}'.format(port=self.port))
+        
+    def set_port(self,p: int):
+        self.port = p
+        
+    def chow_port(self):
+        print('ПОЛЕ ОБЬЕКТА(ПОРТ):\t{port}'.format(port=self.port))
+        
+target_vm_xp = WinXPVM()
+
+target_vm_xp.set_port(139)
+target_vm_xp.chow_port() 
+
+WinXPVM.chow_port(target_vm_xp)
+WinXPVM.set_port(target_vm_xp,135)
+"""
+'''
+class DebianOldVM:
+     def __init__(self):
+        self.ports = [22]
+        print('ПОРТ ОТКРЫВАЕТСЯ:\t{port}'.format(port=self.ports))
+        
+     def __del__(self):
+        print('ПОРТ ЗАКРЫВАЕТСЯ:\t{port}'.format(port=self.ports))
+        
+     def set_port(self,p: int):
+        self.ports.append(p)
+        
+     def chow_port(self):
+        print('ПОЛЕ ОБЬЕКТА(ПОРТ):\t{port}'.format(port=self.ports))
+        
+obj_save_port_debian_old_vm = DebianOldVM()
+obj_save_port_debian_old_vm.set_port(23)
+obj_save_port_debian_old_vm.set_port(21)
+obj_save_port_debian_old_vm.chow_port()
+        
+obj_not_save_port_debian_old_vm = DebianOldVM()
+obj_not_save_port_debian_old_vm.set_port(993)
+obj_not_save_port_debian_old_vm.set_port(443)
+obj_not_save_port_debian_old_vm.chow_port()
+'''
+
+'''
+class scan:
+    def __init__(self,*,port: int,ip: str) -> None:
+        self.port = port
+        self.ip = ip
+    def chow_result_scan(self):
+        print('=='*32)
+        print(' SCAN IP\t[%s]\tIP:\t[%i]' % (self.ip,self.port))
+        print('=='*32)
+        
+obj_scan_port_445 = scan(port=445,ip='40.23.90.2')
+obj_scan_port_22 = scan(port=22,ip='20.35.90.102')
+
+def show_obj_scan():
+    obj_scan_port_22.chow_result_scan()
+    obj_scan_port_445.chow_result_scan()
+    
+show_obj_scan()
+'''
+
+'''
+class ExploitBuilder:
+        def __init__(self,*,vce: str,ip: str) -> None:
+            self.target_ip = ip
+            self.vce = vce
+            
+            if self.vce == 'CVE-2014-0160':
+                self.timeout = 2.0
+                self.payload = '0/0/0/0/0/n/r/n'
+            elif self.vce == 'CVE-2017-5638':
+                self.timeout = 0.2
+                self.payload = 'x/x/0/t/0/n/r/n'
+            elif self.vce == 'CVE-2021-44228':
+                self.timeout = 6.2
+                self.payload = '0/n/r/n'
+            else:
+                self.timeout = 0.0
+                self.payload = 'r/n'
+                self.vce = 'invalid'
+                
+                
+        def chow_parameters_exploi_builder(self):
+            print('~~'*32)
+            print(f'target:\t{self.target_ip=}')
+            print(f'VCE:\t{self.vce=}')
+            print(f'payload:\t{self.payload=}')
+            print(f'timeout:\t{self.timeout=}')
+            print('~~'*32)
+        
+                
+obj_exploit_open_sll = ExploitBuilder(vce='CVE-2021-44228',ip='192.168.158')
+obj_exploit_open_sll.chow_parameters_exploi_builder()
+'''
+
+
+class SearchPortServis:
+    def __init__(self,*,port: int):
+        port_servis_dict: dict[int,list[str]] = {22:['SSH','SCP','SFTP '],23:['Telnet'],445:['SMB','CIFS','Microsoft-DS']}
+        self.port = port
+        
+        result_search_port_servis = port_servis_dict.get(port,False)
+        if result_search_port_servis:
+            print(f'на порте:\t{self.port}\t\tсервисы:\t{result_search_port_servis}')
+        else:
+            print('порта нету в базе данных')
+
+search_port = SearchPortServis
+
+obj_result_search = search_port(port=23)    
+        
+        
+        
+# ==================== { ОПЕРАЦИИ С АТРИБУТАМИ КЛАССОВ И ОБЪЕКТОВ } ====================
