@@ -976,6 +976,8 @@
 #]
 #def sort_data(data: dict):
 #    return sum(data['traffic']) / len(data['traffic'])
+#data = sorted(data,key=sort_data)[::-1]
+#print(data)
 
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1312,5 +1314,3 @@ obj_not_save_port_debian_old_vm.chow_port()
 
 
 
-#data = sorted(data,key=sort_data)[::-1]
-#print(data)
