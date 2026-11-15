@@ -1377,7 +1377,37 @@ class SearchPortServis:
 search_port = SearchPortServis
 
 obj_result_search = search_port(port=23)    
-'''
+'''   
+'''  
+from secrets import choice as random   
+class ScanIpPort:
+    def __init__(self,*,ip:str) :
+        self.ports = [22,80,13]
+        self.ip = ip
+        self.open_port = random(self.ports)
+
+    def return_ip_port(self)-> tuple[str,int]:
+         return self.ip,self.open_port
+
+class BanerGrabbing:
+    def __init__(self,*,ip: str,port: int) -> None:
+        self.baner_port = {22:"SSH-2.0-OpenSSH_8.9p1",80:"HTTP/1.1 200 OK",13:"15 NOV 2026 19:08:00 MSK"}
+        self.ip = ip
+        self.port = port
         
+        result_baner = self.baner_port.get(port,False)
+        if result_baner:
+            print(result_baner)
+        else:
+            print('банер не нашолся')
+
+scan = ScanIpPort
+baner = BanerGrabbing
+
+obj_scan = scan(ip='192.168.0.1')
+ip,port = obj_scan.return_ip_port()
+obj_baner = BanerGrabbing(ip=ip,port=port)
+'''
+
         
 # ==================== { ОПЕРАЦИИ С АТРИБУТАМИ КЛАССОВ И ОБЪЕКТОВ } ====================
