@@ -1362,7 +1362,7 @@ obj_exploit_open_sll = ExploitBuilder(vce='CVE-2021-44228',ip='192.168.158')
 obj_exploit_open_sll.chow_parameters_exploi_builder()
 '''
 
-
+'''
 class SearchPortServis:
     def __init__(self,*,port: int):
         port_servis_dict: dict[int,list[str]] = {22:['SSH','SCP','SFTP '],23:['Telnet'],445:['SMB','CIFS','Microsoft-DS']}
@@ -1377,7 +1377,7 @@ class SearchPortServis:
 search_port = SearchPortServis
 
 obj_result_search = search_port(port=23)    
-        
+'''
         
         
 # ==================== { ОПЕРАЦИИ С АТРИБУТАМИ КЛАССОВ И ОБЪЕКТОВ } ====================
