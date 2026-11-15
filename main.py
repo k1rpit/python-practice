@@ -1123,6 +1123,191 @@ obj_cve_sn.chow_sequence_number()
 
 '''
 # ------------------- [ ОБЪЕКТЫ: РЕАЛИЗАЦИЯ КЛАССОВ ] -------------------
+"""
+class Unix:
+    pass
+
+class Darwin:
+    pass
+
+class Linux:
+    pass
+
+class BSD:
+    pass
+
+apple_os  = Darwin
+
+hp_ux = Unix()
+debian = Linux()
+
+iOS = apple_os()
+iPadOS = apple_os()
+macOS = apple_os()
+
+
+apple_os = iOS.__class__
+watchOS = apple_os()
+
+print(f'ОБЬЕКТ:\t"iOS" ПОД КЛАССОМ:\t{type(iOS).__name__}')
+print(f'ОБЬЕКТ:\t"iPadOS" ПОД КЛАССОМ:\t{type(iPadOS).__name__}')
+print(f'ОБЬЕКТ:\t"macOS" ПОД КЛАССОМ:\t{type(macOS).__name__}')
+print(f'ОБЬЕКТ:\t"watchOS" ПОД КЛАССОМ:\t{type(watchOS).__name__}')
+
+apple_os.__name__ = "darwin"
+iOS.__name__ = "mac_os"
+
+print(f'ОБЬЕКТ:\t"iOS" ПОД КЛАССОМ:\t{type(iOS).__name__}')
+print(f'ОБЬЕКТ:\t"iPadOS" ПОД КЛАССОМ:\t{type(iPadOS).__name__}')
+print(f'ОБЬЕКТ:\t"macOS" ПОД КЛАССОМ:\t{type(macOS).__name__}')
+print(f'ОБЬЕКТ:\t"watchOS" ПОД КЛАССОМ:\t{type(watchOS).__name__}')
+"""
+
+'''
+class GNU:
+    pass
+class Linux:
+    pass
+linux = Linux
+gnu  = GNU
+
+debian = linux()
+red_heat = gnu()
+
+linux.__name__ = 'GNU/LINUX'
+gnu.__name__ = 'GNU/LINUX'
+
+print('debian\n',type(debian).__name__)
+
+print('red heat\n',type(red_heat).__name__)
+'''
+'''
+class OpenSSH:
+    cve = ['CVE-2024-6387']
+    def set(self,cve_user: str):
+        OpenSSH.cve.append(cve_user)
+        
+    def show():
+        print(f'{OpenSSH.cve=}')
+        
+
+
+OpenSSH.cve = ['CVE-2018-15473']
+OpenSSH.show()
+
+High_Critical_vce_open_ssh = OpenSSH()
+
+
+
+High_Critical_vce_open_ssh.set('CVE-2023-38408 ')
+High_Critical_vce_open_ssh.set('CVE-2024-6387 ')
+
+
+print(f'{High_Critical_vce_open_ssh.cve=}')
+'''
+
+"""
+class Unix:
+    os = 'BSD'
+    
+    def set(os_user):
+        Unix.os = os_user
+        
+    def chow():
+        print(f'{Unix.os=}')
+Unix.chow()
+Unix.set('SunOS')
+Unix.chow() 
+
+Unix.os = 'HP-UX'
+print(f'{Unix.os=}')
+
+Unix.set('BSD')
+
+obj_BSD = Unix()
+obj_mac_os = Unix()
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+obj_BSD.os = 'NetBSD'
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+obj_mac_os.os = 'Darwin'
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+
+del obj_BSD.os
+
+print('-'*64)
+print(f'класс:\t{Unix.os=}')
+print(f'обьект №1:\t{obj_BSD.os=}')
+print(f'обьект №2:\t{obj_mac_os.os=}')
+print('-'*64)
+"""
+"""
+class WinXPVM:
+    def __init__(self):
+        self.port = 445
+        print('ПОРТ ОТКРЫВАЕТСЯ:\t{port}'.format(port=self.port))
+        
+    def __del__(self):
+        print('ПОРТ ЗАКРЫВАЕТСЯ:\t{port}'.format(port=self.port))
+        
+    def set_port(self,p: int):
+        self.port = p
+        
+    def chow_port(self):
+        print('ПОЛЕ ОБЬЕКТА(ПОРТ):\t{port}'.format(port=self.port))
+        
+target_vm_xp = WinXPVM()
+
+target_vm_xp.set_port(139)
+target_vm_xp.chow_port() 
+
+WinXPVM.chow_port(target_vm_xp)
+WinXPVM.set_port(target_vm_xp,135)
+"""
+'''
+class DebianOldVM:
+     def __init__(self):
+        self.ports = [22]
+        print('ПОРТ ОТКРЫВАЕТСЯ:\t{port}'.format(port=self.ports))
+        
+     def __del__(self):
+        print('ПОРТ ЗАКРЫВАЕТСЯ:\t{port}'.format(port=self.ports))
+        
+     def set_port(self,p: int):
+        self.ports.append(p)
+        
+     def chow_port(self):
+        print('ПОЛЕ ОБЬЕКТА(ПОРТ):\t{port}'.format(port=self.ports))
+        
+obj_save_port_debian_old_vm = DebianOldVM()
+obj_save_port_debian_old_vm.set_port(23)
+obj_save_port_debian_old_vm.set_port(21)
+obj_save_port_debian_old_vm.chow_port()
+        
+obj_not_save_port_debian_old_vm = DebianOldVM()
+obj_not_save_port_debian_old_vm.set_port(993)
+obj_not_save_port_debian_old_vm.set_port(443)
+obj_not_save_port_debian_old_vm.chow_port()
+'''
+
+# ==================== { ОПЕРАЦИИ С АТРИБУТАМИ КЛАССОВ И ОБЪЕКТОВ } ====================
+
 
 
 
