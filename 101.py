@@ -1606,6 +1606,7 @@ def user_actions(*,obj=bank_user) -> None:
         
 user_actions()
 '''
+'''
 from secrets import choice as randomList
 random_data_ports: list[list[int]] = [[22,21,445],[20,21],[23,21,22],[80],[80,22],[445],[19,22],[23],[2000,22],[564]]
 
@@ -1660,3 +1661,77 @@ def scan(*,ip: str) -> None:
    obj_show.show_baners()
 
 scan(ip='192.168.0.105')
+'''
+import random
+cve_data_base: dict[str, float] = {
+    "CVE-2021-44228": 10.0,
+    "CVE-2017-0144": 8.8,
+    "CVE-2014-0160": 7.5,
+    "CVE-2024-3094": 10.0,
+    "CVE-2023-44487": 7.5,
+    "CVE-2020-0601": 8.1,
+    "CVE-2019-11043": 9.8,
+    "CVE-2021-34527": 8.8,
+    "CVE-2018-11776": 9.8,
+    "CVE-2022-22965": 9.8,
+    "CVE-2025-21520": 1.8,
+    "CVE-2023-21928": 1.8,
+    "CVE-2026-60913": 1.9,
+}
+
+cve_list: list[str] = [
+    "CVE-2021-44228",
+    "CVE-2017-0144",
+    "CVE-2014-0160",
+    "CVE-2024-3094",
+    "CVE-2023-44487",
+    "CVE-2020-0601",
+    "CVE-2019-11043",
+    "CVE-2021-34527",
+    "CVE-2018-11776",
+    "CVE-2022-22965",
+    "CVE-2025-21520",
+    "CVE-2023-21928",
+    "CVE-2026-60913",
+]
+
+
+ips: list[str] = [
+    "45.83.192.14",
+    "185.220.101.34",
+    "91.108.56.130",
+    "81.19.70.3",
+    "104.21.48.190",
+    "77.88.55.242",
+    "89.208.103.21",
+    "176.59.44.118",
+    "62.112.113.5",
+    "142.250.185.78",
+]
+
+
+class GeneratorLog:
+    def __init__(self,*,ips:list[str],data_cve: list[str] ) -> None :
+        self.ip = random.choice(ips)
+        self.data_cve = random.choice(data_cve)
+        
+    def show_log(self) -> None :
+        print(f'target IP:\t"{self.ip}" Vulnerability:\t"{self.data_cve}"')
+        
+    def return_data_log(self) -> tuple[str,str] :
+        return self.ip,self.data_cve
+
+class CveScore:
+    def score(self,*,ip: str,cve: str,data=cve_data_base) -> None:
+        result_search_cve = data.get(cve,None)
+        if result_search_cve:
+            print(f'cve:\t"{cve}" Severity:\t"{result_search_cve}" IP:\t"{ip}"')
+
+
+
+gen_log = GeneratorLog(ips=ips,data_cve=cve_list)
+gen_log.show_log()
+ip_log,cve_log = gen_log.return_data_log()
+
+score_cve = CveScore()
+score_cve.score(ip=ip_log,cve=cve_log)
