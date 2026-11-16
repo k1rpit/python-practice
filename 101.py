@@ -1411,3 +1411,159 @@ obj_baner = BanerGrabbing(ip=ip,port=port)
 
         
 # ==================== { ОПЕРАЦИИ С АТРИБУТАМИ КЛАССОВ И ОБЪЕКТОВ } ====================
+# класс это словарь
+"""
+class ip_one:
+    pass
+
+class ip_two:
+    ip = '192.168.0.104'
+    def chow_ip():
+        print(f'поле класса{ip_two=}:\t\t{ip_two.ip=}')
+        
+    def chow_ports(self):
+        print(f'ПОРТЫ {ip_two.ip=}:\t\t{self.ports=} ')
+        
+    def __init__(self):
+        self.ports = [20,445,21,80,8080,137,5900,135]
+        
+port = [139,2222]
+
+print('='*128)
+for p in ip_one.__dict__:
+    print(f'{ip_one.__dict__[p]=}')        
+
+print('='*128)
+
+for p in ip_two.__dict__:
+    print(f'{ip_two.__dict__[p]=}')   
+print('='*128)
+    
+ip1 = ip_one()
+ip2 = ip_two()
+
+print(f'{ip1.__dict__=}')
+print(f'{ip2.__dict__=}')
+"""
+# >>>>>>>>>>>>>>>>>>>> ( КОПИРОВАНИЕ ОБЪЕКТОВ ) <<<<<<<<<<<<<<<<<<<<
+"""
+from copy import *
+
+class DataIp:
+    pass
+2
+obj_data_ip = DataIp()
+
+obj_data_ip.ip = '192.168.0.109'
+obj_data_ip.ports = [5900,8080,5901]
+
+obj_data_ip_safe = obj_data_ip
+
+obj_data_ip_copy = copy(obj_data_ip)
+obj_data_ip_deepcopy = deepcopy(obj_data_ip)
+
+obj_data_ip_copy.ports.append(22)
+obj_data_ip_deepcopy.ip = '10.56.0.8'
+
+print("<>"*64)
+print(f'{obj_data_ip.ip=}\t{obj_data_ip.ports=}')
+print(f'{obj_data_ip_safe.ip=}\t{obj_data_ip_safe.ports=}')
+print(f'{obj_data_ip_copy.ip=}\t{obj_data_ip_copy.ports=}')
+print(f'{obj_data_ip_deepcopy.ip=}\t{obj_data_ip_deepcopy.ports=}')
+print("<>"*64)
+"""
+
+'''
+from copy import deepcopy as dcopy
+
+
+class VMWinXp:
+    pass
+
+VMWinXp.ip = '10.12.0.3'
+VMWinXp.ports = [137,135,139,5000]
+
+vm_xp = VMWinXp()
+vm_xp.ports = VMWinXp.ports
+
+vm_xp_rdr = dcopy(vm_xp)
+vm_xp_samba = dcopy(vm_xp_rdr)
+
+vm_xp_rdr.ports.append(3389)
+vm_xp_samba.ports.append(445)
+
+print('>>'*32)
+print(f'{vm_xp_rdr.ports=}')
+print(f'{vm_xp_samba.ports=}')
+print('<<'*32)
+'''
+
+
+
+# ========================================================================
+# root#~ ./ДОКУМЕНТАЦИЯ_И_ДЕКОРАТОРЫ
+
+'''
+class GNU:
+    """GNU NOT UNIX"""
+    pass
+
+class MacOs:
+    """DARWIN"""
+    pass
+
+
+print(f'ДОКУМЕНТАЦИЯ класса GNU:\t\t{GNU.__doc__}')
+print(f'ДОКУМЕНТАЦИЯ класса MacOs:\t\t{MacOs.__doc__}')
+
+
+obj_linux = GNU()
+obj_IOS = MacOs()
+
+obj_linux.__doc__ = 'класс линукс'
+obj_IOS.__class__.__doc__ = "класс айос"
+
+print(obj_linux.__doc__)
+print(obj_IOS.__doc__)
+'''
+
+'''
+class filterData:
+    """фильтарция всего кроме '9.3.1.0' """
+    def filter_data(data: str) -> bool:
+        return not data != '9.3.1.0'
+    
+data_raw: list[str] = ['1.3.4.0','10.3.6.8','1.0.0.1','9.3.1.0','94.3.23.1','100.4.5.1','1.7.8.9']
+data_clear = list(filter(filterData.filter_data,data_raw))
+print(data_clear)
+print(filterData.__doc__)
+'''
+
+
+#_______________________________________________________________________________
+
+"""
+def set_data(Data):
+    class SetData:
+        value = Data()
+    SetData.__name__='мой'+Data.__name__
+    return SetData
+@set_data
+class UniversalClass:
+    def __init__(self):
+        self.number = 923
+        
+    def show(self):
+        print(f'поля UniversalClass:\t{self.number=}')
+        
+#univ_obj =set_data(UniversalClass)()
+univ_obj = UniversalClass()
+
+univ_obj.value.show()
+print(f'класс обьекта:\t{univ_obj.__class__.__name__=}')
+print(f'класс поля обьекта "value":\t{univ_obj.value.__class__.__name__=}')
+"""
+
+
+# ==============================================================================
+# ================    ИСПОЛЬЗОВАНИЕ КЛАССОВ И ОБЪЕКТОВ    =====================
