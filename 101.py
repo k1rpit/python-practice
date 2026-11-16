@@ -1567,3 +1567,96 @@ print(f'класс поля обьекта "value":\t{univ_obj.value.__class__._
 
 # ==============================================================================
 # ================    ИСПОЛЬЗОВАНИЕ КЛАССОВ И ОБЪЕКТОВ    =====================
+'''
+import random
+from time import sleep
+class Bank:
+    def __init__(self) -> None:
+        self.value = 0
+        self.balance_activity = True
+    def show_value(self) -> None:
+        if self.value < 0:
+            self.balance_activity = False
+            print('ВАШ БАЛАННС УШОЛ В МИНУС')
+        else:
+            print(f'ваш баланс:\t{self.value}')
+    def earn(self)-> None:
+        if self.value < 0:
+            self.balance_activity = False
+            print('ВАШ БАЛАННС УШОЛ В МИНУС')
+        else:
+            self.value += random.randint(1,10)
+    def spend(self) -> None:
+        if self.value < 0:
+            self.balance_activity = False
+            print('ВАШ БАЛАННС УШОЛ В МИНУС')
+        else:
+             self.value -= random.randint(1,10)   
+             
+bank_user = Bank()
+
+def user_actions(*,obj=bank_user) -> None:
+    while obj.balance_activity:
+        sleep(random.randint(1,2))
+        obj.earn()
+        obj.show_value()
+        sleep(random.randint(1,2))
+        obj.spend()
+        obj.show_value()
+        
+user_actions()
+'''
+from secrets import choice as randomList
+random_data_ports: list[list[int]] = [[22,21,445],[20,21],[23,21,22],[80],[80,22],[445],[19,22],[23],[2000,22],[564]]
+
+data_port_baner: dict[int,str] = {
+    19:' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefg',
+    20:None,
+    21:'220/t(vsFTPd 3.0.5)/n/n',
+    22:'SSH-2.0-OpenSSH_for_Windows_7.7',
+    23: 'FreeBSD/amd64 (amnesiac) (pts/0)/n',
+    80:'Server: OpenBSD httpd',
+    445:'Windows Server 2008 R2 Standard 7601 Service Pack 1',
+    564: '9P2000',
+    2000: '/nMikroTik bandwidth-test server/n/r/n'
+}
+
+
+class ScanIpPorts:
+   def __init__(self) -> None :
+       self.ports =  random_data_ports
+       self.open_ports = randomList(self.ports)
+       
+   def return_ports(self) -> list[int] :
+       return self.open_ports
+
+
+class BanerScan:
+    def __init__(self,*,open_ports: list[list[int]],data_baner:dict[int,str]) -> None:
+        self.ports = open_ports
+        self.baners = data_baner
+        self.baners_list = []
+    def get_banner(self) -> list[str]:
+        for i in self.ports:
+            result_search_baner = self.baners.get(i,None)
+            if result_search_baner:
+                self.baners_list.append(result_search_baner)
+        return self.baners_list
+
+class ShowDataPortsBanner:
+    def __init__(self,*,baners: list[str],ip:str) -> None:
+        self.baners = baners
+        self.ip= ip
+    def show_baners(self):
+        print('='*64)
+        print(f'IP:\t{self.ip=}\nБАНЕРА:\t{self.baners=}')
+        print('='*64)
+
+
+def scan(*,ip: str) -> None:
+   obj_scan = ScanIpPorts()
+   obj_baner =BanerScan(open_ports=obj_scan.return_ports(),data_baner=data_port_baner)
+   obj_show = ShowDataPortsBanner(baners=obj_baner.get_banner(),ip=ip)
+   obj_show.show_baners()
+
+scan(ip='192.168.0.105')
