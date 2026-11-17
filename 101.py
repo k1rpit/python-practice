@@ -1804,3 +1804,118 @@ sys = System(drivers=drivers)
 sys.load_drivers()
 sys.init_system()
 '''
+
+
+
+
+
+# ░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒
+# █▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓
+# ░▒▓█░▒▓█░▒▓█░         НАСЛЕДОВАНИЕ И СПЕЦИАЛЬНЫЕ МЕТОДЫ        ░█▓▒░█▓▒░█▓▒░█▓
+# █▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓▒░█▓
+# ░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒▓█░▒
+
+# ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ [ ЗНАКОМСТВО С НАСЛЕДОВАНИЕМ ] ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+"""
+class ServirTelnet:
+    def __init__(self) -> None:
+        self.set_servis(23)
+        print(f'{self.servis=}')
+        
+    def set_servis(self,s: str) -> None:
+        self.servis = s
+        
+    def show_servis(self):
+        print(f"{self.__class__.__name__ =}  {self.servis=}")
+        
+        
+class ServirTelnetAlt(ServirTelnet):
+    def __init__(self):
+        self.set_servis(933)
+        print(f"{self.__class__.__name__ =}  {self.servis=}")
+        
+
+servir_telnet = ServirTelnet()
+servir_telnet.set_servis(23)
+servir_telnet.show_servis()
+print('/\\'*64)
+servir_telnet_alt = ServirTelnetAlt()
+servir_telnet_alt.set_servis(933)
+servir_telnet_alt.show_servis()
+"""
+
+
+'''
+class BaseScan:
+    def __init__(self):
+        self.ports = [445,139,3389,137,135]
+        self.ip = '93.184.206.32'
+        
+    def show_self(self):
+        print(self.ip)
+        print(self.ports)
+        
+class Fullscan(BaseScan):
+    pass
+
+        
+scan_base = BaseScan()
+scan_base.show_self()
+
+scan_full = Fullscan()
+scan_full.show_self()
+'''
+
+# ╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳ [ МНОГОКРАТНОЕ НАСЛЕДОВАНИЕ ] ╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈╳◈
+"""
+class ServirOne:
+    port = (80,)
+    def show_port(self):
+        print(f'ServirOne:\t[{self.port}]')
+        
+class ServirTwo(ServirOne):
+    def show_port(self):
+        print(f'ServirTwo:\t[{self.port}]')
+        
+class ServirThree(ServirTwo):
+    def show_port(self):
+        print(f'ServirThree:\t[{self.port}]')
+        
+        
+server_1 = ServirOne()
+server_2 = ServirTwo()
+server_3 = ServirThree()
+
+server_1.show_port()
+server_2.show_port()
+server_3.show_port()
+"""
+
+'''
+class WindowsXp:
+    api = 'Win32'
+    def show(self):
+        print(f'windows XP:\t{self.api}')
+        
+class Windows7(WindowsXp):
+     api = 'Win64'
+     def show(self):
+        print(f'Windows7:\t{self.api}')
+        
+class Windows10(Windows7):
+     def show(self):
+        print(f'Windows10:\t{self.api}')
+        
+win_xp = WindowsXp()
+win_7 = Windows7()
+win_10 = Windows10()
+
+win_xp.show(); win_7.show(); win_10.show()
+'''
+
+# ╠═╬═╬═╬═╬═╬═╬═╬═╬═╣ [ МНОЖЕСТВЕННОЕ НАСЛЕДОВАНИЕ ] ╠╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╣
+    
+    
+    
+    
