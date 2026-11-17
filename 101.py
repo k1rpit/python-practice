@@ -1912,10 +1912,107 @@ win_7 = Windows7()
 win_10 = Windows10()
 
 win_xp.show(); win_7.show(); win_10.show()
+
+
+
 '''
+
+'''
+class BasedScan:
+    def based_scan(self):
+        print('IP:"93.209.135.43"\tport:23\ttelnet')
+        
+class DeepScan(BasedScan):
+    def deep_scan(self):
+        print('os:"LINUX"\tCVE:None')
+        
+        
+scan = DeepScan()
+scan.based_scan()
+scan.deep_scan()
+''' 
 
 # ╠═╬═╬═╬═╬═╬═╬═╬═╬═╣ [ МНОЖЕСТВЕННОЕ НАСЛЕДОВАНИЕ ] ╠╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╬═╣
     
+""" 
+class Darwin:
+    def show_kernel(self) -> None:
+        print('kernel:\t\tDarwin')
+        
+class FreeBSD:
+    def show_userland(self) -> None:
+        print('userland:\tFreeBSD')
+        
+class Unix:
+    def show_architecture(self) -> None:
+        print('architecture:\tUnix')
+        
+
+class MacOS(Unix,Darwin,FreeBSD) :
+    pass
+
+
+mak_os = MacOS()
+mak_os.show_kernel()
+mak_os.show_architecture()
+mak_os.show_userland()
+"""
+
+
+'''
+class Gnu:
+    def show_tools(self):
+        print('tools:\tGNU')
+        
+class Linux:
+    def show_core(self):
+        print('core:\tLINUX')
+        
+class Debian:
+    def show_base(self):
+        print('base:\tDebian')
+        
+
+class Gnome:
+     def show_desktop_environment(self):
+        print('desktop_environment:\tGNOME')
     
     
+class Ubuntu(Linux,Gnu,Debian,Gnome):
+    def chow_distro(self):
+        print('distro:\tUbuntu')
+
+
+ubuntu = Ubuntu()
+ubuntu.chow_distro()
+ubuntu.show_base()
+ubuntu.show_tools()
+ubuntu.show_core()
+'''
+   
     
+'''
+class BasedScan:
+    def based_scan(self):
+        print('IP:"93.209.135.43"\tport:23\ttelnet')
+        
+class DeepScan():
+    def deep_scan(self):
+        print('os:"LINUX"\tCVE:None')
+        
+class BanerScan():
+    def baner_scan(self):
+        print('\\r\\n\Authorized access only!')
+        
+class FullScan(BasedScan,DeepScan,BanerScan):
+    pass
+        
+        
+scan = FullScan()
+scan.based_scan()
+scan.deep_scan()
+scan.baner_scan()
+
+'''
+
+# █▌▐█▌▐█▌▐█▌▐█ [ ПЕРЕОПРЕДЕЛЕНИЕ МЕТОДОВ ПРИ НАСЛЕДОВАНИИ ] ▐█▌▐█▌▐█▌▐█▌▐█▌▐█▌▐█
