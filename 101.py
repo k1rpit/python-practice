@@ -1662,6 +1662,7 @@ def scan(*,ip: str) -> None:
 
 scan(ip='192.168.0.105')
 '''
+'''
 import random
 cve_data_base: dict[str, float] = {
     "CVE-2021-44228": 10.0,
@@ -1735,3 +1736,71 @@ ip_log,cve_log = gen_log.return_data_log()
 
 score_cve = CveScore()
 score_cve.score(ip=ip_log,cve=cve_log)
+'''
+'''
+sys_core_pross = {
+    'init_process':10,
+    'network_service':5,
+    'filesystem_services':9,
+    'security_services':9
+}
+
+user_processes = {
+    'shell': 8,
+    'window_manager': 7,
+    'background_apps': 4,
+    'user_apps': 3
+}
+
+drivers = [
+    "storage_driver",
+    "network_driver",
+    "gpu_driver",
+    "input_driver",
+    "audio_driver",
+]
+
+
+
+class Core:
+    def __init__(self,*,pros: dict[str,int]) -> None:
+        self.processes = pros
+        self.distributed_processes = None
+    
+    def control_prosses(self):
+        def process_priorities(pros: tuple[str,int]):
+            return pros[1]
+        
+        self.distributed_processes = sorted(self.processes.items(),key=process_priorities)[::-1]
+    
+    def show_prosses(self):
+        print(f"""
+│{self.distributed_processes=}│
+              """)
+    
+    
+    
+class System:
+    def __init__(self,*,drivers: list[str]):
+        self.drivers =  drivers
+        self.prepared_drivers = []
+        
+    def load_drivers(self):
+        for d in self.drivers:
+            self.prepared_drivers.append(d)
+            
+    def init_system(self):
+        pross_sys = Core(pros=sys_core_pross)
+        pross_user = Core(pros=user_processes) 
+
+        pross_sys.control_prosses()
+        pross_sys.show_prosses()
+
+        pross_user.control_prosses()
+        pross_user.show_prosses()
+        
+    
+sys = System(drivers=drivers)
+sys.load_drivers()
+sys.init_system()
+'''
