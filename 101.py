@@ -2016,3 +2016,155 @@ scan.baner_scan()
 '''
 
 # █▌▐█▌▐█▌▐█▌▐█ [ ПЕРЕОПРЕДЕЛЕНИЕ МЕТОДОВ ПРИ НАСЛЕДОВАНИИ ] ▐█▌▐█▌▐█▌▐█▌▐█▌▐█▌▐█
+
+"""
+class BSD:
+    os = 'BSD'
+    def __init__(self,*,char: str):
+        print('Конструктор\t№1:\t"BSD"')
+        self.character_os = char
+        print('характер\tсоздан')
+        self.show()
+        
+    def show(self):
+        print(f'Метод\t№1')
+        print(f'Класс:\t{self.__class__.__name__=}')
+        print(f'Ос класса:\t{self.__class__.os=}')
+        print(f'Поле характера:\t{self.character_os=}')
+        
+        
+class FreeBSD(BSD):
+    os = 'FreeBSD'
+    
+    
+class GhostBSD(FreeBSD):
+    def __init__(self,*,char,txt):
+        print('Конструктор\t№2:\t"GhostBSD"')
+        self.character_os = char
+        self.name = txt
+        print('Новый\tобьект')
+        self.show()
+        
+    def show(self):
+        print(f'Метод\t№2')
+        print(f'Класс:\t{self.__class__.__name__=}')
+        print(f'Ос класса:\t{self.__class__.os=}')
+        print(f'Поле характера:\t{self.character_os=}')
+        
+        
+        
+        
+
+
+class NomadBSD(GhostBSD):
+    os = 'NomadBSD'
+    
+bsd = BSD(char='raw')
+bsd.os = 'bsd'
+bsd.show()
+
+freebsd = FreeBSD(char='network')
+ghostbsd = GhostBSD(char='gui',txt=1)
+nomadbsd = NomadBSD(char='gui',txt=2)
+"""
+
+'''
+class Windows2000Server:
+    max_ram = '4gb'
+    def __init__(self,*,norm_ver: str):
+        print(f'{self.__class__.__name__}')  
+        self.client_system = norm_ver
+        
+    def show(self):
+        print(f'максиально видимое озу:\t{self.__class__.max_ram=}')
+        print(f'обычная версия:\t{self.client_system=}')
+
+class WindowsServer2003R2(Windows2000Server):
+    max_ram = '32gb'
+    
+    
+class WindowsServer2008(WindowsServer2003R2):
+    max_ram = '2TB' 
+    def __init__(self,*,norm_ver: str,arch: int):
+        print('Windows Server 2008')  
+        self.client_system = norm_ver
+        self.architecture = arch
+        
+    def show(self):
+        print(f'максиально видимое озу:\t{self.__class__.max_ram=}')
+        print(f'обычная версия:\t{self.client_system=}')
+        print(f'архитектура:\t{self.architecture=}')
+        
+class WindowsComputeClusterServer2003(WindowsServer2003R2):
+    pass
+def main() -> None:
+    print('=='*42)
+    
+    win_2000 = Windows2000Server(norm_ver='xp')
+    win_2000.show()
+
+    print('=='*42)
+
+    win_2003_r2 = WindowsServer2003R2(norm_ver='Windows XP Professional x64 Edition')
+    win_2003_r2.show()
+
+    print('=='*42)
+
+    win_2008 = WindowsServer2008(norm_ver='Windows Vista',arch=64)
+    win_2008.show()
+
+    print('=='*42)
+
+    win_2008_super_pc = WindowsComputeClusterServer2003(norm_ver='Windows XP Professional x64 Edition')
+    win_2008_super_pc.show()
+    
+
+'''
+        
+# [~~~~~~~~~~~~~~~~~~ [ ВИРТУАЛЬНОСТЬ МЕТОДОВ ] ~~~~~~~~~~~~~~~~~~~~~~~~~]
+"""
+class LogOpenSSH:
+    def display_log(self):
+        print(f'Метод из  LogOpenSSH')
+        print(f'Поля os:\t{self.os}')
+        
+    def show(self):
+        self.display_log()
+        
+class LogTelnet(LogOpenSSH):
+    def display_log(self):
+        print(f'Метод из LogTelnet')
+        print(f'Поля port:\t{self.port}')
+    
+log_openssg = LogOpenSSH()
+log_openssg.os = 'OpenSSH'
+
+log_telnet = LogTelnet()
+log_telnet.port = 23
+
+log_openssg.show()
+log_telnet.show()
+"""
+
+'''
+class Win64:
+    def display_api(self):
+        print('WIN64')
+        print('системы которые полностю перешли на WIN64:\t{}'.format(self.os_64))
+        
+    def show(self):
+        self.display_api()
+        
+class Win128(Win64):
+     def display_api(self):
+        print(f'Win128')
+        print(f'системы которые полностю перешли на WIN128:\t{self.os_128}')
+        
+win_64 = Win64()
+win_64.os_64 = ['Windows 11','Windows XP Professional x64 Edition']
+win_64.show()
+
+win_128 = Win128()
+win_128.os_128 = [None]
+win_128.show()
+''' 
