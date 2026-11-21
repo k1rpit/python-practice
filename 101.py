@@ -2171,7 +2171,7 @@ win_128.show()
 
 #:::::::::::::::::'super()'::::::::::::::::
 
-
+'''
 class BSD:
     def __init__(self):
         self.arch = 'Unix'
@@ -2194,3 +2194,49 @@ bsd_raw = BSD()
 open_bsd = OpenBSD()
 bsd_raw.start_show()   
 open_bsd.start_show()  
+'''
+'''
+class Server_10_main:
+    def __init__(self,*,os: str):
+        self.ip = '192.168.1.104'
+        self.os = os
+
+
+    def show(self):
+        print(f'os:\t{self.os}\nip:\t{self.ip}')
+
+class Server_10_alt(Server_10_main):
+    def __init__(self,*,os):
+        super().__init__(os=os)
+        self.ip = '192.168.1.108'
+
+        
+
+serv = Server_10_main(os='win')
+serv_alt = Server_10_alt(os='darwin')
+serv.show()
+serv_alt.show()
+'''
+
+class Scan:
+    def __init__(self,*,ip: str):
+        self.ip = ip
+        self.port = 22
+    def display_scan(self):
+        print(f'ip:\t{self.ip}')
+        print(f'port:\t{self.port}')
+        self.show_result()
+    def show_result(self):
+        print(f'PORT:{self.port}\tOPEN\tSERVICE:SSH')
+
+class OsScan(Scan):
+    def __init__(self,*,ip):
+        super().__init__(ip=ip)
+        self.os = 'Gnu/Linux'
+
+    def show_result(self):
+        super().show_result()
+        print(f'OS:{self.os}')
+
+os_scan = OsScan(ip='23.56.90.13')
+os_scan.display_scan()
