@@ -2217,7 +2217,7 @@ serv_alt = Server_10_alt(os='darwin')
 serv.show()
 serv_alt.show()
 '''
-
+'''
 class Scan:
     def __init__(self,*,ip: str):
         self.ip = ip
@@ -2240,3 +2240,42 @@ class OsScan(Scan):
 
 os_scan = OsScan(ip='23.56.90.13')
 os_scan.display_scan()
+'''
+'''
+class Server1:
+    def __init__(self):
+        self.ip = '10.0.0.5'
+        self.port = (22,21)
+    def show_data_server(self):
+        print(f'IP:\t{self.ip}\t\tPORTS:\t{self.port}')
+
+class Server2(Server1):
+    def __init__(self):
+        super().__init__()
+        self.ip = '10.0.0.12'
+        self.port = (445,3389)
+        self.id2 = 2
+    def show_data_server(self):
+        super().show_data_server()
+        print(self.id2)
+    
+class Server3(Server2):
+    def __init__(self):
+        super().__init__()
+        self.ip = '10.0.0.1'
+        self.port = (8080,53,48901)
+        self.id3 = 3
+
+    def show_data_server(self):
+        super().show_data_server()
+        print(self.id3)
+
+s1 = Server1()
+s1.show_data_server()
+print('^'*32)
+s2 = Server2()
+s2.show_data_server()
+print('^'*32)
+s3 = Server3()
+s3.show_data_server()
+'''
