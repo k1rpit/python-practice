@@ -2002,7 +2002,7 @@ class DeepScan():
         
 class BanerScan():
     def baner_scan(self):
-        print('\\r\\n\Authorized access only!')
+        print('Authorized access only!')
         
 class FullScan(BasedScan,DeepScan,BanerScan):
     pass
@@ -2168,3 +2168,29 @@ win_128 = Win128()
 win_128.os_128 = [None]
 win_128.show()
 ''' 
+
+#:::::::::::::::::'super()'::::::::::::::::
+
+
+class BSD:
+    def __init__(self):
+        self.arch = 'Unix'
+        self.char = 'Raw'
+    def start_show(self):
+        self.show()
+    def show(self):
+        print(f'{self.char=}')
+        
+class OpenBSD(BSD):
+    def __init__(self):
+        super().__init__()
+        self.name = 'OpenBSD'
+        self.char = 'safe'
+        
+    def show(self):
+        super().show()
+        print(f'{self.name=}')
+bsd_raw = BSD()
+open_bsd = OpenBSD()
+bsd_raw.start_show()   
+open_bsd.start_show()  
