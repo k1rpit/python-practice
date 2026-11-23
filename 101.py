@@ -2279,7 +2279,7 @@ print('^'*32)
 s3 = Server3()
 s3.show_data_server()
 '''
-
+'''
 class SmbShare01:
     def __init__(self):
         self.ip = '10.10.20.45'
@@ -2299,6 +2299,141 @@ class FtpShare04(SmbShare01):
 
 ftp_serv04 =  FtpShare04()
 ftp_serv04.show_data()
+'''
 
 
 
+
+# ░▒▓█░▒▓█░▒▓█░             ПРИВЕДЕНИЕ ТИПОВ              ░█▓▒░█▓▒░█▓▒░█▓
+
+"""
+class Srv:
+    def __init__(self,os):
+        self.os = os
+
+    def __str__(self):
+        return 'СИСТЕМА:\t' +str(self.os)
+
+    def __bool__(self):
+        if type(self.os) == int:
+            return True
+        else:
+            return False
+
+    def __int__(self):
+        if self:
+            return self.os
+        else:
+            return 0
+
+print('srv')
+srv = Srv(os=2025)
+print(srv)
+print('год:\t',int(srv))
+print('srv - 1:\t',int(srv)-1)
+
+print('srv_alt')
+srv_alt = Srv(os='Win2008R2')
+print(srv_alt)
+print('год:\t',int(srv_alt))
+print('srv_alt + 1:\t',int(srv_alt)+1)
+"""
+
+'''
+class BannerResult:
+    def __init__(self,*,port: int):
+        self.port = port
+
+    def __str__(self):
+        return 'Port:\t' +str(self.port)
+    def __bool__(self):
+        if self.port == 80:
+            return True
+ 
+        else:
+            return False
+    def __int__(self):
+        if self:
+            return self.port
+        else:
+            return 0
+banner = BannerResult(port=80) 
+print(banner)
+print(int(banner))
+print(bool(banner))
+'''
+'''
+class ServiceResult:
+    def __init__(self,*,srv: str):
+        self.service = srv
+
+    def __bool__(self):
+        if type(self.service)== str and  self.service == 'http':
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        if self:
+            return 'port 80'
+        else:
+            return 'invalid service'
+
+srv_resl = ServiceResult(srv='http')
+print(srv_resl)
+'''
+'''
+ports_servc = {80:'http',22:'ssh',23:'telnet',21:'ftp'}
+
+class SearchPortService:
+    def __init__(self,*,p=221):
+        self.port = p
+    def __bool__(self):
+        if type(self.port) == int:
+            result_search = ports_servc.get(self.port)
+            return bool(result_search)
+        else:
+            return False
+
+    def __str__(self):
+        if self:
+            return str(self.port) + '\t' + ports_servc[self.port]
+        else:
+            return 'не нашлось'
+
+serch_p_s = SearchPortService() 
+print(serch_p_s)
+'''
+
+'''
+vuln_Ports: list[str] = [
+    "23","53","69","111",
+  "135","137","138","139","161","162",
+  "445","512","513","514","1900","2375"
+]
+
+
+class CheckPort:
+    def __init__(self,*,p: str) -> None:
+        self.port: str = p
+
+    def __bool__(self) -> bool:
+        if type(self.port) == str:
+            for p in vuln_Ports:
+                if p == self.port:
+                    return True
+                    break
+
+        return False
+
+    def __str__(self) -> str:
+        if self:
+            return 'порт:\t' + str(self.port) + '\tможет быть опасен!'
+        else:
+            return 'все ок'
+
+check_port: CheckPort = CheckPort(p='4451')
+print(check_port)
+'''
+
+        
