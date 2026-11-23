@@ -2279,3 +2279,26 @@ print('^'*32)
 s3 = Server3()
 s3.show_data_server()
 '''
+
+class SmbShare01:
+    def __init__(self):
+        self.ip = '10.10.20.45'
+        self.port = [445,3389]
+    def show_data(self):
+        print(f'IP:\t{self.ip}')
+        print(f'port:\t{self.port}')
+
+class FtpShare04(SmbShare01):
+    def __init__(self):
+        super().__init__()
+        self.ip = '10.10.20.101'
+        self.port = [5901,21,20]
+    def show_data(self):
+        super().show_data()
+        print('ftp')
+
+ftp_serv04 =  FtpShare04()
+ftp_serv04.show_data()
+
+
+
